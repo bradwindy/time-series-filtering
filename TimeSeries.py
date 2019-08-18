@@ -2,7 +2,7 @@ import numpy as np
 from scipy.ndimage import filters
 import matplotlib.pyplot as plt
 from scipy.signal.windows import gaussian
-
+import statistics
 
 if __name__ == '__main__':
     # Initialise some variables related to the time series
@@ -37,6 +37,9 @@ if __name__ == '__main__':
     # Print the deviation of the filtered data from a true sine wave
     print("Root Mean Square deviation of Gaussian Filtering: ",
           np.sqrt(np.sum(np.power(sin_wave - gauss, 2))) / time_series_value_amount)
+    print("Mean of data: ", statistics.mean(y))
+    print("Median of data: ", statistics.median(y))
+    print("Minimum value in data: ", min(y))
 
     # Plotting gaussian filtered data, adding a legend to the plot and saving the figure
     plt.plot(x, gauss)
